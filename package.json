@@ -1,0 +1,41 @@
+{
+  "name": "react-easy-localization",
+  "version": "1.0.0",
+  "description": "A simple module to make React localization easy",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuongvu1/react-easy-localization.git"
+  },
+  "keywords": [
+    "react-component",
+    "react",
+    "localization",
+    "internationalization",
+    "javascript",
+    "typescript",
+    "i18n"
+  ],
+  "author": "vuongvu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vuongvu1/react-easy-localization/issues"
+  },
+  "homepage": "https://github.com/vuongvu1/react-easy-localization#readme",
+  "dependencies": {
+    "react-localization": "^1.0.15"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "react": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  }
+}
