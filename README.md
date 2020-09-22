@@ -15,12 +15,12 @@ A simple module to make React localization easy
 ### Localization values
 
 - `i18n`: all localized texts
-- `languageCode`: current selected language code
+- `languageCode`: the current selected language code
 - `changeLanguage`: a function to change the language
 
 ### Input
 
-- `resources`: a simple object containing a language key (i.e. en, ge, fr..) with a list of key-value pairs with the needed localized strings
+- `resources`: a simple object containing language keys (i.e. en, ge, fr..) and a list of key-value pairs for localized strings
 
 ```js
 const resources = {
@@ -77,4 +77,31 @@ const Home = () => {
     </>
   );
 };
+
+export default Home;
+```
+
+```js
+import { withLocale } from "react-easy-localization";
+
+const Home = ({ i18n, languageCode, changeLanguage }) => {
+  return (
+    <>
+      {/* A simple button to switch the language */}
+      <button
+        onClick={() =>
+          languageCode === "en" ? changeLanguage("ja") : changeLanguage("en")
+        }
+      >
+        {languageCode}
+      </button>
+
+      {/* Use localized texts */}
+      <div>{i18n.title}</div>
+      <div>{i18n.text}</div>
+    </>
+  );
+};
+
+export default withLocale(Home);
 ```
