@@ -20,10 +20,10 @@ A simple module to make React localization easy
 
 ### Input
 
-- `resource`: a simple object containing a language key (i.e. en, ge, fr..) with a list of key-value pairs with the needed localized strings
+- `resources`: a simple object containing a language key (i.e. en, ge, fr..) with a list of key-value pairs with the needed localized strings
 
 ```js
-const resource = {
+const resources = {
   en: {
     title: "Title",
     text:
@@ -39,14 +39,14 @@ const resource = {
 
 ## Usage
 
-1. Wrap LocaleProvider on top of your application and provide resource object
+1. Wrap LocaleProvider on top of your application and provide resources object
 
 ```js
 // on top of your app
 import { LocaleProvider } from "react-easy-localization";
 
 const App = () => (
-  <LocaleProvider resource={resource}>
+  <LocaleProvider resources={resources}>
     <YourApp />
   </LocaleProvider>
 );
