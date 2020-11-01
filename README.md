@@ -1,6 +1,8 @@
 # react-easy-localization
 
-A simple module to make React localization easy
+A simple module build on top of [react-localization](https://www.npmjs.com/package/react-localization) which makes React localization easy
+
+![Demo](./demo.gif)
 
 ## Installation
 
