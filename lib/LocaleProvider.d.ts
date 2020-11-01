@@ -7,11 +7,9 @@ declare module "react-easy-localization" {
 
   export const LocaleProvider: React.FC<{}>;
 
-  class Localed extends React.Component<Subtract<P, LocaleContextValue>> {}
-
   export const withLocale: <P extends LocaleContextValue>(
     WrappedComponent: React.ComponentType<P>
-  ) => typeof Localed;
+  ) => typeof React.Component;
 
-  export const useLocale = () => LocaleContextValue;
+  export const useLocale: () => LocaleContextValue;
 }

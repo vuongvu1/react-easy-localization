@@ -2,3 +2,4 @@ test
 src
 .babelrc
 yarn.lock
+*.gif
