@@ -1,6 +1,6 @@
 # react-easy-localization
 
-A simple module build on top of [react-localization](https://www.npmjs.com/package/react-localization) which makes React localization easy
+A simple module build on top of [react-localization](https://www.npmjs.com/package/react-localization) which makes React localization easy.
 
 ![Demo](./demo.gif)
 
@@ -11,14 +11,14 @@ A simple module build on top of [react-localization](https://www.npmjs.com/packa
 ## API
 
 - LocaleProvider - use React Context to provide localization values
-- useLocale() - a React Hooks to get localization values
-- withLocale(Component) - a React HOC to get localization values
+- useLocale - a React Hooks that provides localization values
+- withLocale - a React HOC that provides localization values
 
 ### Localization values
 
-- `i18n`: all localized texts
-- `languageCode`: the current selected language code
-- `changeLanguage`: a function to change the language
+- `i18n`: contains all localized texts
+- `languageCode`: current selected language code
+- `changeLanguage`: use this function to change the language
 
 ### Input
 
@@ -28,23 +28,20 @@ A simple module build on top of [react-localization](https://www.npmjs.com/packa
 const resources = {
   en: {
     title: "Title",
-    text:
-      "A title is one or more words used before or after a person's name, in certain contexts",
+    text: "A title is one or more words used before or after a person's name",
   },
   ja: {
     title: "題名",
-    text:
-      "タイトルは、特定のコンテキストで、人の名前の前後に使用される1つ以上の単語です",
+    text: "タイトルは、人の名前の前後に使用される1つ以上の単語です。",
   },
 };
 ```
 
 ## Usage
 
-1. Wrap LocaleProvider on top of your application and provide resources object
-
-```js
+```jsx
 // on top of your app
+// wrap `LocaleProvider` on top of your application and provide a resources object
 import { LocaleProvider } from "react-easy-localization";
 
 const App = () => (
@@ -54,24 +51,21 @@ const App = () => (
 );
 ```
 
-2. Then use `useLocale` or `withLocale` to get localization values
-
-```js
+```jsx
+// Use `useLocale` to get localization values
 import { useLocale } from "react-easy-localization";
 
 const Home = () => {
   const { i18n, languageCode, changeLanguage } = useLocale();
 
+  const toggleLanguage = () => {
+    return languageCode === "en" ? changeLanguage("ja") : changeLanguage("en");
+  };
+
   return (
     <>
       {/* A simple button to switch the language */}
-      <button
-        onClick={() =>
-          languageCode === "en" ? changeLanguage("ja") : changeLanguage("en")
-        }
-      >
-        {languageCode}
-      </button>
+      <button onClick={toggleLanguage}>{languageCode}</button>
 
       {/* Use localized texts */}
       <div>{i18n.title}</div>
@@ -83,20 +77,19 @@ const Home = () => {
 export default Home;
 ```
 
-```js
+```jsx
+// Or use `withLocale` to get localization values
 import { withLocale } from "react-easy-localization";
 
 const Home = ({ i18n, languageCode, changeLanguage }) => {
+  const toggleLanguage = () => {
+    return languageCode === "en" ? changeLanguage("ja") : changeLanguage("en");
+  };
+
   return (
     <>
       {/* A simple button to switch the language */}
-      <button
-        onClick={() =>
-          languageCode === "en" ? changeLanguage("ja") : changeLanguage("en")
-        }
-      >
-        {languageCode}
-      </button>
+      <button onClick={toggleLanguage}>{languageCode}</button>
 
       {/* Use localized texts */}
       <div>{i18n.title}</div>
