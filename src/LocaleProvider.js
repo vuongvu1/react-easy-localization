@@ -9,14 +9,18 @@ import LocalizedStrings from "react-localization";
 
 const LocaleContext = createContext({
   i18n: null,
-  languageCode: "en",
+  languageCode: "",
   changeLanguage: () => {},
+  allLanguages: [],
 });
 
-export const LocaleProvider = ({ resources, children }) => {
-  const [languageCode, setLanguageCode] = useState("en");
-
+export const LocaleProvider = ({ resources, defaultLanguage, children }) => {
   const i18n = useMemo(() => new LocalizedStrings(resources), [resources]);
+  const allLanguages = useMemo(() => Object.keys(resources), [resources]);
+
+  const [languageCode, setLanguageCode] = useState(
+    defaultLanguage || allLanguages[0]
+  );
 
   const changeLanguage = useCallback(
     (newLanguageCode) => {
@@ -32,6 +36,7 @@ export const LocaleProvider = ({ resources, children }) => {
         i18n,
         languageCode,
         changeLanguage,
+        allLanguages,
       }}
     >
       {children}

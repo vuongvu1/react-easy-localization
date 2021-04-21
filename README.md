@@ -1,6 +1,6 @@
 # react-easy-localization
 
-A simple module build on top of [react-localization](https://www.npmjs.com/package/react-localization) which makes React localization easy.
+A simple module built on top of [react-localization](https://www.npmjs.com/package/react-localization) which makes React localization easy.
 
 ![Demo](./demo.gif)
 
@@ -8,21 +8,27 @@ A simple module build on top of [react-localization](https://www.npmjs.com/packa
 
 `npm install --save react-easy-localization`
 
+### React dependency
+
+React >= 16.8.0
+
 ## API
 
 - LocaleProvider - use React Context to provide localization values
-- useLocale - a React Hooks that provides localization values
+- useLocale - a React Hook that provides localization values
 - withLocale - a React HOC that provides localization values
 
 ### Localization values
 
-- `i18n`: contains all localized texts
+- `i18n`: an object contains all localized texts
 - `languageCode`: current selected language code
-- `changeLanguage`: use this function to change the language
+- `changeLanguage`: method to change the language
+- `allLanguages`: contains the list of all languages
 
 ### Input
 
-- `resources`: a simple object containing language keys (i.e. en, ge, fr..) and a list of key-value pairs for localized strings
+- `resources`: a simple object containing language keys (i.e. en, ge, fr..) and a list of key-value pairs for localized texts
+- `defaultLanguage`: choose a start language, if unset, the default is the first language in `resources`
 
 ```js
 const resources = {
@@ -40,7 +46,6 @@ const resources = {
 ## Usage
 
 ```jsx
-// on top of your app
 // wrap `LocaleProvider` on top of your application and provide a resources object
 import { LocaleProvider } from "react-easy-localization";
 
@@ -64,10 +69,8 @@ const Home = () => {
 
   return (
     <>
-      {/* A simple button to switch the language */}
       <button onClick={toggleLanguage}>{languageCode}</button>
 
-      {/* Use localized texts */}
       <div>{i18n.title}</div>
       <div>{i18n.text}</div>
     </>
@@ -88,10 +91,8 @@ const Home = ({ i18n, languageCode, changeLanguage }) => {
 
   return (
     <>
-      {/* A simple button to switch the language */}
       <button onClick={toggleLanguage}>{languageCode}</button>
 
-      {/* Use localized texts */}
       <div>{i18n.title}</div>
       <div>{i18n.text}</div>
     </>
