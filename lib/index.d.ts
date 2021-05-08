@@ -8,7 +8,7 @@ declare module "react-easy-localization" {
 
   export const LocaleProvider: React.FC<{
     resources: Record<string, Record<string, string>>;
-    defaultLanguage: string;
+    defaultLanguage?: string;
   }>;
 
   export const withLocale: <P extends LocaleContextValue>(

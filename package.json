@@ -1,8 +1,8 @@
 {
   "name": "react-easy-localization",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple module to make React localization easy",
-  "main": "./lib/LocaleProvider.js",
+  "main": "./lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib"
   },
